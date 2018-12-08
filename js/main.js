@@ -36,27 +36,43 @@ $(function () {
         $('.' + $(this).data('class')).show();
     });
 
-    // Loading Screen
+    // Smooth Scroll To Div
 
-    $(window).on("load", function () {
+    $('.nav li a').click(function () {
 
-        // Loading Elements
+        $('html, body').animate({
 
-        $('.loading-overlay .sk-cube-grid').fadeOut(2000, function () {
+            scrollTop: $('#' + $(this).data('value')).offset().top
 
-            // Show The Scroll
+        }, 1000);
 
-            $('body').css('overflow', 'auto');
+        // Active list
 
-            $(this).parent().fadeOut(2000, function () {
-
-                $(this).remove();
-
-            });
-
-        });
+        $(this).parent().addClass('active').siblings().removeClass('active');
 
     });
+
+    // Loading Screen
+
+    // $(window).on("load", function () {
+
+    //     // Loading Elements
+
+    //     $('.loading-overlay .sk-cube-grid').fadeOut(2000, function () {
+
+    //         // Show The Scroll
+
+    //         $('body').css('overflow', 'auto');
+
+    //         $(this).parent().fadeOut(2000, function () {
+
+    //             $(this).remove();
+
+    //         });
+
+    //     });
+
+    // });
 
 });
 
